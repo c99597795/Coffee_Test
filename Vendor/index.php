@@ -32,53 +32,70 @@
         <a href='../index.php'><i class="fas fa-coffee"></i></a>
       </div>
       <a href='#home'></a>
-    </div>
+</div>
     <!--Left navbar-->
+    <!-- main container -->
+    <main>
+      <div class='container'>
+      <!-- made a chart about account customer today-->
+        <div>
+        <span class='today_view'>
+            今日總覽</span> 
+        </div>
+        <!--  -->
+        <div class='main_cards'id='today-view'>
+          <div class='card'>
+            <div class='visitors-card'>
+              <div class='card_left'>
+                <i class="fas fa-user fa-5x"></i>
+                <p>Visitors</p>
+              </div>
+              <div class="card_inner">
+                <span id='VisitorNumber'>123</span><span> 人</span>
+              </div>
+            </div>
+          </div>
+          <div class='card'>
+            <div class='revenue-card'>
+              <div class=card_left>
+                <i class="fas fa-money-check-alt fa-5x"></i>
+                <p>Revenue</p>
+              </div>
+            <div class="card_inner">
+              <span id='RevenueNumber'>10,000</span><span> $</span>
+            </div>
+            </div>
+            
+          </div>
+          <div class='card'>
+            <div class='sales-card'>
+              <div class='card_left'>
+                <i class="fas fa-coffee fa-5x"></i>
+                <p>Sales</p>
+              </div>
+              <div class="card_inner">
+                <span id='SalesNumber'>789</span><span> 杯</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="charts">
+          <canvas id='chart'></canvas>
+        </div>
+      </div>
+    </main>
     <div id='sidenav'>
         <a href="#"><i class="fa fa-home"></i> Home</a>
         <a href="#"><i class="fa fa-wrench"></i> Services</a>
         <a href="#"><i class="fa fa-user"></i> Clients</a>
         <a href="#"><i class="fa fa-envelope"></i> Contact</a>
     </div>
-    <!-- main container -->
-    <div class='container'>
-      <!-- made a chart about account customer today-->
-      <div>
-        <span class='today_view'>
-          今日總覽</span>
-      </div>
-      <!--  -->
-      <div class='row'id='today-view'>
-        <div class='col-4 col-s-3'>
-          <div class='visitors-card'style='background-color:#0275d8;padding:10px;'>
-            <i class="fas fa-user fa-5x" style='color:white;'></i>
-              <span>Visitor</span>
-          </div>
-        </div>
-        <div class='col-4 col-s-3'>
-          <div class='revenue-card'style='background-color:#f0ad4e;padding:10px;'>
-          <i class="fas fa-money-check-alt fa-5x"style='color:white;'></i>
-            <span>Revenue</span>
-          </div>
-          
-        </div>
-        <div class='col-3 col-s-3'>
-          <div class='sales-card'style='background-color:#5cb85c;padding:10px;'>
-          <i class="fas fa-coffee fa-5x"style='color:white;'></i>
-            <span>sales</span>
-          </div>
-        </div>
 
-      </div>
-    </div>
-
-      <!-- image viewer -->
+    <!-- image viewer -->
 
     <!-- footer pusher -->
-
-  </div>
-
-  <footer class="footer flex-container">
+    <!--<footer class="footer flex-container">
     <div class="footer-copyright">
       <div class="flex-item" id="footer">
         
@@ -89,7 +106,10 @@
           <i class="fab fa-github"></i> </a>
       </div>
     </div>
-  </footer>
+  </footer>-->
+  </div>
+
+  
 
   <!-- UI scripts -->
   <script src="../jquery/jquery-2.1.1.min.js"></script>
@@ -98,51 +118,18 @@
   <script type="text/javascript" src="../jquery/vue.min.js"></script>
   <script type="text/javascript" src="../iconJS/all.min.js"></script>
   <!-- tf -->
-  <script src="Tensorflow/tfjs@0.9.js"></script>
   <!-- utils -->
-  <script src="js/tracking-min.js"></script>
-  <script src="js/face-min.js"></script>
-  <script src="jquery/Chart.bundle.min.js"></script>
-  <script src="jquery/sweetalert2.all.min.js"></script>
+  <script src="../jquery/Chart.bundle.min.js"></script>
+  <script src="../jquery/sweetalert2.all.min.js"></script>
   <!--Local js-->
-  <script src="js/util.js"></script>
-  <script src="js/model_emotion.js"></script>
-  <script src="js/model_gender.js"></script>
-  <script src="js/webcam.js"></script>
-  <script src="js/jquery.qrcode.min.js"></script>
-  <script src='js/QRcodeToSQL.js'></script>
+  <script src="../js/util.js"></script>
+  <!-- chart -->
+  <script src='VendorReact.js'></script>
 
   <script type="text/javascript">
-    flag=0;
     $(function() {
-      flag=0;
-  // Handler for .ready() called.
-  $("#show_Price").hide(500)
-
+      sales_chart();
 });
-
-function btnc(argument) {
-  // body...
-  if(flag==0) 
-    {
-      flag=1;
-    $("#show_Price").show(500)
-  }
-  else
-  {
-    flag=0;
-    $("#show_Price").hide(500)
-    location.reload();
-
-  }
-}
-function ToQRcodeScanner(){
-  //window.location = "QRcodeScanner.php";
-  window.open('QRcodeScanner.php','QRcodeScanner',config='height=850,width=1280,left=280')
-}
-function QRcodeWindow(){
-  window.open('QRcode.html','QRcode',config='height=540,width=540,left=720,top=250')
-}
 </script>
   <style>
   #card-item-container {

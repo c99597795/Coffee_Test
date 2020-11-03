@@ -1,5 +1,6 @@
 #sidenav{
-    height: auto;
+    grid-area:sidenav;
+    height: 100%;
     width: 200px;
     position: fixed;
     z-index: 1;
@@ -16,15 +17,94 @@
     display: block;
   }
   
-  #sidenav a:hover {
+#sidenav a:hover {
     color: #f1f1f1;
   }
-  /*card-icon*/
-.visitors-card,.revenue-card,.sales-card{
-  border: 2px solid white;
-  border-radius: 5px;
-}
+  .wrapper{
+    display:grid;
+    height:100vh;
+    grid-template-columns:0.3fr 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 3fr;
+    grid-template-areas: 
+    'sidenav topnav topnav topnav'
+    'sidenav main main main';
+  }
+  main{
+    grid-area:main;
+  }
+  .topnav{
+    grid-area:topnav;
+  }
+  footer{
+    grid-area:footer;
+  }
 .today_view{
   color:white;
-  font-size: 25px;
+  font-size: 40px;
+}
+.container{
+  padding: 20px;
+}
+.main_cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:30px;
+  margin:20px 0;
+}
+.card{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 13px #535353,
+                -5px -5px 13px #535353;
+}
+.card_left{
+  float: left;
+}
+.card_inner{
+  float: right;
+  padding:10px;
+  margin-left:5rem;
+}
+.card_inner > span{
+  font-size:3rem;
+}
+.card_inner > span{
+  color:black;
+}
+.visitors-card{
+  color:#0275d8;
+  padding:10px;
+}
+.visitors-card > .card_left> p{
+  color: #05559b;
+  font-size:20px;
+  text-align: center;
+}
+
+.card > p{
+  font-size:20px;
+}
+.revenue-card{
+  color:#e9dd3c;
+  padding:10px;
+}
+.revenue-card >.card_left> p{
+  color: #b3aa35;
+  font-size:20px;
+  text-align: center;
+}
+.sales-card{
+  color:#ff6e1b;
+  padding:10px;
+}
+.sales-card > .card_left>p{
+  color: #bd571c;
+  font-size:20px;
+  text-align: center;
+}
+.charts{
+  background: #ffffff;
+  width:70%;
 }

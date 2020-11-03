@@ -1,6 +1,7 @@
 /* sticky footer */
 * {
     margin: 0;
+    padding:0;
   }
   
   html, body {
@@ -73,7 +74,7 @@
     display: grid;
 }
 .container{
-    width:70%;
+    width:90%;
     margin:auto;
 }
 .footer{
